@@ -1587,7 +1587,7 @@ static void ZIP_closeArchive(void *opaque);
 static void *ZIP_openArchive(PHYSFS_Io *io, const char *name, int forWriting)
 {
     ZIPinfo *info = NULL;
-    PHYSFS_uint64 dstart;  /* data start */
+    PHYSFS_uint64 dstart = 0;  /* data start */
     PHYSFS_uint64 cdir_ofs;  /* central dir offset */
     PHYSFS_uint64 entry_count;
 
@@ -1671,7 +1671,7 @@ static PHYSFS_Io *ZIP_openRead(void *opaque, const char *filename)
     ZIPfileinfo *finfo = NULL;
     PHYSFS_Io *io = NULL;
     PHYSFS_uint8 *password = NULL;
-    int i;
+    //int i;
 
     /* if not found, see if maybe "$PASSWORD" is appended. */
     if ((!entry) && (info->has_crypto))
